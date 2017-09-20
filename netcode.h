@@ -174,6 +174,8 @@ void netcode_server_update( struct netcode_server_t * server, double time );
 
 int netcode_server_client_connected( struct netcode_server_t * server, int client_index );
 
+void netcode_server_client_address(struct netcode_server_t * server, int client_index, char* buffer);
+
 uint64_t netcode_server_client_id( struct netcode_server_t * server, int client_index );
 
 void netcode_server_disconnect_client( struct netcode_server_t * server, int client_index );

@@ -4019,6 +4019,15 @@ int netcode_server_find_free_client_index( struct netcode_server_t * server )
     return -1;
 }
 
+void netcode_server_client_address(struct netcode_server_t * server, int client_index, char* buffer) {
+	netcode_assert(buffer);
+	netcode_assert(server);
+	netcode_assert(client_index < server->max_clients);
+	netcode_assert(server->client_connected[client_index] == 1);
+
+	netcode_address_to_string(&server->client_address[client_index], buffer);
+}
+
 void netcode_server_connect_client( struct netcode_server_t * server, 
                                     int client_index, 
                                     struct netcode_address_t * address, 
